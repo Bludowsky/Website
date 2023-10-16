@@ -1,10 +1,9 @@
-//get location user
-var location = new XMLHttpRequest();
-        location.open('GET', 'https://api.ipify.org?format=json', true);
+var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://api.ipify.org?format=json', true);
 
-        location.onload = function() {
-            if (location.status === 200) {
-                var response = JSON.parse(location.responseText);
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
                 console.log('Your IP address is: ' + response.ip);
 
                 // Retrieve the country and city based on the IP address
@@ -30,6 +29,6 @@ var location = new XMLHttpRequest();
             }
         };
 
-        location.send();
+        xhr.send();
 
 //ip can be wrong but we work on this
